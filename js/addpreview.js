@@ -1,26 +1,26 @@
-// import { mapAdd } from "./data";
+import { mapAdds } from "./data.js";
 
-// const cardTemplate = document.querySelector('#card').content.querySelector('.card');
-// const mapList = document.querySelector('.map');
+const cardTemplate = document.querySelector('#card').content.querySelector('.card');
+const mapList = document.querySelector('.map');
 
-// const renderdAdd = ({Title, Price}) => {
-//   const mapPreview = cardTemplate.cloneNode(true);
+const renderAdd = ({title}) => {
+  const mapPreview = cardTemplate.cloneNode(true);
 
-//   mapPreview.querySelector('.popup__title');
-//   // mapPreview.querySelector('.popup__text--price')
+  mapPreview.querySelector('.popup__title').textContent = title;
+  // mapPreview.querySelector('.popup__text--price')
 
-//   return mapPreview;
-// };
+  return mapPreview;
+};
 
-// const renderAdds = () => {
-//   let addListFragment = document.createDocumentFragment();
+const renderAdds = () => {
+  let addListFragment = document.createDocumentFragment();
 
-//   photos.forEach((mapAdd) => {
-//     addListFragment.appendChild(renderPhoto(photo));
-//   });
+  mapAdds.forEach(( mapAdd ) => {
+    addListFragment.appendChild(renderAdd( mapAdd ));
+  });
 
-//   mapList.appendChild(addListFragment);
+  mapList.appendChild(addListFragment);
 
-// };
+};
 
-// export { renderAdds };
+export { renderAdds };

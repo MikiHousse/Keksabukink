@@ -1,6 +1,10 @@
-import { mapAdd } from './data.js'
+// import { mapAdd } from './data.js'
 
-console.log(mapAdd);
+// console.log(mapAdd);
+
+import { renderAdds } from "./addpreview";
+
+renderAdds();
 
 
 

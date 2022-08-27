@@ -1,7 +1,7 @@
 import { getRandomInt, createRandomNamber, getRandomElementArr } from './util.js';
 
 // Список объявлений
-const mapAdd = [];
+const mapAdds = [];
 
 //Количество объявлений
 const ADD_COUNT = 10;
@@ -82,7 +82,7 @@ const Y = {
 
 const add = () =>  {
   for (let i = 0; i < ADD_COUNT; i++) {
-    mapAdd.push({
+    mapAdds.push({
       avatar: 'img/avatars/user-' + getRandomInt(1, 10) +'.png',
       offer: [{
         title: getRandomElementArr(title),
@@ -107,4 +107,4 @@ const add = () =>  {
 
 add();
 
-export { mapAdd };
+export { mapAdds };
