@@ -2,108 +2,131 @@ import { getRandomInt, createRandomNamber, getRandomElementArr } from './util.js
 
 // Список объявлений
 const mapAdds = [];
-
 //Количество объявлений
-const ADD_COUNT = 10;
+const MAP_LOCATION = 10;
 
-// Описывает автора
-// const author = {
-//   avatar: 'img/avatars/user-' + getRandomInt(1, 10) +'.png'
-// };
+// Названия объявлений
+const TITLE = [
+  'Пентхаус',
+  'Лофт-отель',
+  'Хибара',
+  'Шикарная квартира',
+  'Простенький домик',
+  'Отель с шикарным видом',
+  'Необычный дом',
+  'Дом с привидениями',
+  'Комфортный люкс',
+  'Двухкомнотная квартира',
+];
 
-const title = ['Дорого', 'Нормально', 'Дешего', 'Люкс',];
-
-const Address = {
-  MIN: 40,
-  MAX: 150,
+// координаты  место расположения
+const location = {
+  x: createRandomNamber(35.65000, 35.70000),
+  y: createRandomNamber(139.70000, 139.80000),
 };
 
-const Price = {
+// цена
+const PRICE = {
   MIN: 1000,
   MAX: 5000,
 };
 
-const type = ['palace', 'flat', 'house', 'bungalow',];
+// тип
+const TYPE = [
+  'palace',
+  'flat',
+  'house',
+  'bungalow',
+];
 
-const Rooms = {
+// комнаты
+const ROOMS = {
   MIN: 1,
-  MAX: 10,
+  MAX: 6,
 };
 
-const Guests = {
+// гости
+const GUESTS = {
   MIN: 1,
-  MAX: 10,
+  MAX: 8,
 };
 
-const Checkin = [
+// время заезда
+const CHECKIN = [
   '12:00',
   '13:00',
   '14:00',
 ];
 
-const Checkout = [
+// время выезда
+const CHECKOUT = [
   '12:00',
   '13:00',
   '14:00',
 ];
 
-const Features = [
+// приемущества
+const FEATURES = [
   'wifi',
   'dishwasher',
   'parking',
   'washer',
   'elevator',
   'conditioner',
-]
+];
 
-const Description = [
+// описание
+const DESCRIPTION = [
   'Уютное место для кхм)',
-  'Для тех кто приехал на работу',
   'Самое лучшая остановка для путешествиников',
   'Иногда и на такое соглашаются',
-]
+  'В нашей квартире есть всё что душе угодно',
+  'Просто и со вкусом, ничего лишнего',
+  'Отсюда шикарный вид на центральную часть города',
+  'Тут всё необычно, даже хоязева',
+  'Тут обитают призраки, заглядывай',
+  'Люкс. Для солидных господ',
+  'Сдаётся 2х-комнатная квартира с удобствами',
+];
 
-const Photos = [
+// фото
+const PHOTOS = [
   'http://o0.github.io/assets/images/tokyo/hotel1.jpg',
   'http://o0.github.io/assets/images/tokyo/hotel2.jpg',
   'http://o0.github.io/assets/images/tokyo/hotel3.jpg',
-]
+];
 
-const X = {
-  MIN: 35.65000,
-  MAX: 35.70000,
-}
-
-const Y = {
-  MIN: 139.70000,
-  MAX: 139.80000,
-}
-
-
+// функция для генерации элементов в массив madAdds
 const add = () =>  {
-  for (let i = 0; i < ADD_COUNT; i++) {
+  // создаем цикл для создания объектов массива до значения MAP_LOCATION
+  for (let i = 0; i < MAP_LOCATION; i++) {
     mapAdds.push({
-      avatar: 'img/avatars/user-' + getRandomInt(1, 10) +'.png',
+      author: {
+        avatar: 'img/avatars/user0' + i + '.png',
+      },
       offer: [{
-        title: getRandomElementArr(title),
-        address: getRandomInt(Address.MIN, Address.MAX),
-        price: getRandomInt(Price.MIN, Price.MAX),
-        type: getRandomElementArr(type),
-        rooms: getRandomInt(Rooms.MIN, Rooms.MAX),
-        guests: getRandomInt(Guests.MIN, Guests.MAX),
-        checkin: getRandomElementArr(Checkin),
-        checkout: getRandomElementArr(Checkout),
-        features: getRandomElementArr(Features),
-        description: getRandomElementArr(Description),
-        photos: getRandomElementArr(Photos),
+        title: getRandomElementArr(TITLE),
+        address: `${location.x}, ${location.y}`,
+        price: getRandomInt(PRICE.MIN, PRICE.MAX),
+        type: getRandomElementArr(Object.values(TYPE)),
+        rooms: getRandomInt(ROOMS.MIN, ROOMS.MAX),
+        guests: getRandomInt(GUESTS.MIN, GUESTS.MAX),
+        checkin: getRandomElementArr(CHECKIN),
+        checkout: getRandomElementArr(CHECKOUT),
+        features: getRandomElementArr(FEATURES),
+        description: getRandomElementArr(DESCRIPTION),
+        photos: getRandomElementArr(PHOTOS),
       }],
       location: [{
-        x: createRandomNamber(X.MIN, X.MAX),
-        y: createRandomNamber(Y.MIN, Y.MAX),
+        x: createRandomNamber(35.65000, 35.70000),
+        y: createRandomNamber(139.70000, 139.80000),
       }],
     })
   }
+  return mapAdds;
 };
+
+console.log(add);
 
 add();
 

@@ -2,7 +2,7 @@
 
 // console.log(mapAdd);
 
-import { renderAdds } from "./addpreview";
+import { renderAdds } from "./addpreview.js";
 
 renderAdds();
 
