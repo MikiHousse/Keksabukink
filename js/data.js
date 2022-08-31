@@ -100,6 +100,7 @@ const PHOTOS = [
 const add = () =>  {
   // создаем цикл для создания объектов массива до значения MAP_LOCATION
   for (let i = 0; i < MAP_LOCATION; i++) {
+    // Добавляем элементы в конец массива методом posh
     mapAdds.push({
       author: {
         avatar: 'img/avatars/user0' + i + '.png',

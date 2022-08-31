@@ -1,18 +1,19 @@
-const getRandomInt = function (min, max) {
+// Генерация случайного числа
+const getRandomInt =  (min, max) => {
   if (min < 0 || max < 0) {
     return -1;
   }
-
+// условия для понимания меньше ли максимум минимума если да то менеет их местами
   if (max < min) {
     [min, max] = [max, min];
   }
-
+// возвращает случайное уелое число в диапозоне округленное в меньшую сторнону
   return Math.floor(Math.random() * (max - min + 1)) + min;
 };
 
 
 
-//Генерация числа с плавающей точкой
+//Генерация числа  с плавающей точкой
 const createRandomNamber = (min, max) => {
   if (min < 0 || max < 0) {
   return -1;
