@@ -20,16 +20,16 @@ const createRandomNamber = (min, max) => {
   } else if (max === min) {
     return min;
   }
-  return Math.random() * (max - min) + min;
+  return (Math.random() * (max - min) + min).toFixed(2);
 };
+
+
+console.log(createRandomNamber(1, 10));
 
 
 //Случайный элемент масива
-
 const getRandomElementArr = (array) => {
   return array[getRandomInt(0, array.length - 1)];
 };
-
-
 
 export {getRandomInt, createRandomNamber, getRandomElementArr};
