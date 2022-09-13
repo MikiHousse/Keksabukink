@@ -1,7 +1,7 @@
-import { mapAdds } from "./data.js";
+import mapAdds from './data.js';
 
-const cardTemplate = document.querySelector('#card').content.querySelector('.card');
-const mapList = document.querySelector('.map');
+const cardTemplate = document.querySelector('#card').content.querySelector('.popup');
+const popup = document.querySelector('.popup');
 
 const renderAdd = ({title}) => {
   const mapPreview = cardTemplate.cloneNode(true);
@@ -15,12 +15,15 @@ const renderAdd = ({title}) => {
 const renderAdds = () => {
   let addListFragment = document.createDocumentFragment();
 
-  mapAdds.forEach(( mapAdd ) => {
-    addListFragment.appendChild(renderAdd( mapAdd ));
+  mapAdds.forEach((mapAdd) => {
+    addListFragment.appendChild(renderAdd(mapAdd));
   });
 
-  mapList.appendChild(addListFragment);
+  popup.appendChild(addListFragment);
 
 };
+
+// eslint-disable-next-line no-console
+console.log(renderAdds);
 
 export { renderAdds };

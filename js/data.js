@@ -27,28 +27,28 @@ const location = {
 
 // цена
 const PRICE = {
-  MIN: 1000,
-  MAX: 5000,
+  min: 1000,
+  max: 5000,
 };
 
 // тип
-const TYPE = [
-  'palace',
-  'flat',
-  'house',
-  'bungalow',
-];
+const TYPE = {
+  palace: 'Дворец',
+  flat: 'Квартира',
+  house: 'Дом',
+  bungalow: 'Бунгало',
+};
 
 // комнаты
 const ROOMS = {
-  MIN: 1,
-  MAX: 6,
+  min: 1,
+  max: 6,
 };
 
 // гости
 const GUESTS = {
-  MIN: 1,
-  MAX: 8,
+  min: 1,
+  max: 8,
 };
 
 // время заезда
@@ -97,7 +97,7 @@ const PHOTOS = [
 ];
 
 // функция для генерации элементов в массив madAdds
-const add = () =>  {
+const generationData = () =>  {
   // создаем цикл для создания объектов массива до значения MAP_LOCATION
   for (let i = 0; i < MAP_LOCATION; i++) {
     // Добавляем элементы в конец массива методом posh
@@ -105,30 +105,30 @@ const add = () =>  {
       author: {
         avatar: 'img/avatars/user0' + i + '.png',
       },
-      offer: [{
+      offer: {
         title: getRandomElementArr(TITLE),
         address: `${location.x}, ${location.y}`,
-        price: getRandomInt(PRICE.MIN, PRICE.MAX),
+        price: getRandomInt(PRICE.min, PRICE.max),
         type: getRandomElementArr(Object.values(TYPE)),
-        rooms: getRandomInt(ROOMS.MIN, ROOMS.MAX),
-        guests: getRandomInt(GUESTS.MIN, GUESTS.MAX),
+        rooms: getRandomInt(ROOMS.min, ROOMS.max),
+        guests: getRandomInt(GUESTS.min, GUESTS.max),
         checkin: getRandomElementArr(CHECKIN),
         checkout: getRandomElementArr(CHECKOUT),
         features: getRandomElementArr(FEATURES),
         description: getRandomElementArr(DESCRIPTION),
         photos: getRandomElementArr(PHOTOS),
-      }],
-      location: [{
+      },
+      location: {
         x: createRandomNamber(35.65000, 35.70000),
         y: createRandomNamber(139.70000, 139.80000),
-      }],
+      },
     })
   }
   return mapAdds;
 };
 
-console.log(add);
+// console.log(add);
 
-add();
+generationData();
 
 export { mapAdds };
