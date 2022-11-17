@@ -1,9 +1,8 @@
-import { getRandomInt, createRandomNamber, getRandomElementArr } from './util.js';
-
-// Список объявлений
-const mapAdds = [];
+import { getRandomNum, getFloatNum, getRandomElementArr, getSortingArr} from './util.js';
 //Количество объявлений
 const MAP_LOCATION = 10;
+// Список объявлений
+const mapAdds = [];
 
 // Названия объявлений
 const TITLE = [
@@ -21,8 +20,8 @@ const TITLE = [
 
 // координаты  место расположения
 const location = {
-  x: createRandomNamber(35.65000, 35.70000),
-  y: createRandomNamber(139.70000, 139.80000),
+  x: getFloatNum(35.65000, 35.70000),
+  y: getFloatNum(139.70000, 139.80000),
 };
 
 // цена
@@ -33,7 +32,7 @@ const PRICE = {
 
 // тип
 const TYPE = {
-  palace: 'Дворец',
+  hotel: 'Отель',
   flat: 'Квартира',
   house: 'Дом',
   bungalow: 'Бунгало',
@@ -100,7 +99,7 @@ const PHOTOS = [
 const generationData = () =>  {
   // создаем цикл для создания объектов массива до значения MAP_LOCATION
   for (let i = 0; i < MAP_LOCATION; i++) {
-    // Добавляем элементы в конец массива методом posh
+    // Добавляем элементы в конец массива методом push
     mapAdds.push({
       author: {
         avatar: 'img/avatars/user0' + i + '.png',
@@ -108,27 +107,26 @@ const generationData = () =>  {
       offer: {
         title: getRandomElementArr(TITLE),
         address: `${location.x}, ${location.y}`,
-        price: getRandomInt(PRICE.min, PRICE.max),
+        price: getRandomNum(PRICE.min, PRICE.max),
         type: getRandomElementArr(Object.values(TYPE)),
-        rooms: getRandomInt(ROOMS.min, ROOMS.max),
-        guests: getRandomInt(GUESTS.min, GUESTS.max),
+        rooms: getRandomNum(ROOMS.min, ROOMS.max),
+        guests: getRandomNum(GUESTS.min, GUESTS.max),
         checkin: getRandomElementArr(CHECKIN),
         checkout: getRandomElementArr(CHECKOUT),
-        features: getRandomElementArr(FEATURES),
+        features: getSortingArr(FEATURES),
         description: getRandomElementArr(DESCRIPTION),
         photos: getRandomElementArr(PHOTOS),
       },
       location: {
-        x: createRandomNamber(35.65000, 35.70000),
-        y: createRandomNamber(139.70000, 139.80000),
+        x: getFloatNum(35.65000, 35.70000),
+        y: getFloatNum(139.70000, 139.80000),
       },
     })
   }
   return mapAdds;
 };
 
-// console.log(add);
-
+console.log(generationData());
 generationData();
 
-export { mapAdds };
+export {mapAdds};

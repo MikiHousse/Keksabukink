@@ -2,9 +2,14 @@
 
 // console.log(mapAdd);
 
-import { renderAdds } from "./addpreview.js";
+// import { ctratePreview } from "./addpreview.js";
+import './data.js';
+import './addpreview.js';
+// import './form.js';
+// import './server.js';
+// import './map.js';
 
-renderAdds();
+// ctratePreview();
 
 
 
