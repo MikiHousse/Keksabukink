@@ -126,7 +126,7 @@ const generationData = () =>  {
   return mapAdds;
 };
 
-console.log(generationData());
+// console.log(generationData());
 generationData();
 
 export {mapAdds};

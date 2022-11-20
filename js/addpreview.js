@@ -25,6 +25,8 @@ const createPreview = (elem) => {
     type.textContent = 'Отель'
   } else if (elem.offer.type === 'house') {
     type.textContent = 'Дом' 
+  } else if (elem.offer.type === 'palace') {
+      type.textContent = 'Дворец' 
   } else {
     type.textContent = 'Бунгало';
   }
@@ -35,7 +37,7 @@ const createPreview = (elem) => {
   features.textContent = '';
   if (elem.offer.features) {
     const getFeatures = (arr)  => arr.map((features) => `<li class="popup__feature popup__feature--${features}"></li>`).join('');
-    features.insertAdjacetHTML('afterbegin', getFeatures(elem.offer.features));
+    features.insertAdjacentHTML('afterbegin', getFeatures(elem.offer.features));
   }
 
   description.textContent = elem.offer.description;
@@ -43,7 +45,7 @@ const createPreview = (elem) => {
   photos.textContent = '';
   if (elem.offer.photos) {
     const getPhotos = (arr) => arr.map((photo) => `<img src="${photo}" class="popup__photo" width="45" height="40" alt="Фотография жилья">`).join('');
-    photos.insertAdjacetHTML('afterbegin', getPhotos(elem.offer.photos))
+    photos.insertAdjacentHTML('afterbegin', getPhotos(elem.offer.photos))
   }
 
   return popup;
